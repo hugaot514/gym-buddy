@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym-Buddy | Trouve ton partenaire idéal</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <style>
+    /* VARIABLES & RESET */
+    :root {
+      --primary: #007AFF; /* Bleu Apple */
+      --dark: #1D1D1F;
+      --gray: #86868b;
+      --light: #f5f5f7;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background-color: white;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* BANNER MODERNE AVEC TON IMAGE LOCALE */
+    .banner {
+      /* Le dégradé linéaire permet de noircir l'image pour que le texte reste lisible */
+      /* J'ai modifié la ligne URL pour pointer vers ton fichier 'images/background.jpg' */
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                  url('images/background.jpg');
+      
+      background-size: cover;
+      background-position: center;
+      height: 85vh; /* Légèrement plus haute pour plus d'impact */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .banner h1 {
+      font-size: clamp(40px, 8vw, 85px); /* Responsive font size */
+      font-weight: 900;
+      margin: 0;
+      letter-spacing: -3px; /* Espacement serré pour style Tech */
+    }
+
+    .banner p {
+      font-size: clamp(18px, 4vw, 24px);
+      opacity: 0.9;
+      margin: 20px 0 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* BOUTON STYLE APPLE */
+    .btn-blue {
+      background-color: var(--primary);
+      color: white;
+      padding: 18px 36px;
+      border-radius: 35px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      transition: transform 0.2s ease-in-out, background 0.2s ease-in-out;
+      display: inline-block;
+    }
+
+    .btn-blue:hover {
+      background-color: #0062cc;
+      transform: scale(1.05);
+    }
+
+    /* SECTION CARTES (FLEXBOX MODERNISÉ) */
+    .section-title {
+      text-align: center;
+      margin: 100px 0 50px;
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px; /* Espacement moderne */
+      margin-bottom: 100px;
+      justify-content: center;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 300px; /* Plus large pour mobile */
+      max-width: 340px; /* Évite les cartes géantes sur grand écran */
+      background: var(--light);
+      padding: 40px;
+      border-radius: 24px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animation fluide Apple */
+      border: 1px solid transparent;
+      box-sizing: border-box;
+    }
+
+    .card:hover {
+      background: white;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+      transform: translateY(-15px);
+      border: 1px solid #e5e5e5;
+    }
+
+    .card i {
+      font-size: 48px;
+      color: var(--primary);
+      margin-bottom: 25px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 15px;
+    }
+
+    .card p {
+      color: var(--gray);
+      margin: 0;
+      font-size: 16px;
+    }
+
+    /* TYPEFORM WRAPPER */
+    .typeform-container {
+      background: var(--light);
+      padding: 80px 20px;
+      border-radius: 32px;
+      margin-bottom: 100px;
+    }
+
+    .typeform-title {
+      text-align: center; 
+      font-size: 32px; 
+      font-weight: 900; 
+      margin-bottom: 40px;
+      letter-spacing: -1px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 80px 0;
+      background: var(--dark);
+      color: white;
+      text-align: center;
+    }
+
+    footer p {
+      opacity: 0.7;
+      margin: 0 0 20px;
+    }
+
+    .social-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 0;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 28px;
+      transition: opacity 0.2s ease;
+    }
+
+    .social-links a:hover { opacity: 0.6; }
+
+    /* SMOOTH SCROLL */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="banner">
+    <div class="container">
+      <h1>Gym-Buddy.</h1>
+      <p>L'entraînement est meilleur à deux. Trouvez votre partenaire idéal aujourd'hui.</p>
+      <a href="#join" class="btn-blue">Commencer maintenant</a>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <h2 class="section-title">Pourquoi nous rejoindre ?</h2>
+    
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-fire"></i>
+        <h3>Motivation</h3>
+        <p>Ne ratez plus jamais une séance grâce à votre partenaire de confiance.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Sécurité</h3>
+        <p>Ayez toujours quelqu'un pour assurer vos records personnels (PR).</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-trophy"></i>
+        <h3>Compétition</h3>
+        <p>Progressez plus vite en vous défiant mutuellement chaque jour.</p>
+      </div>
+    </div>
+
+    <section id="join" class="typeform-container">
+      <h2 class="typeform-title">Rejoignez la liste d'attente</h2>
+      
+      <div data-tf-widget="FEursUPd" data-tf-opacity="100" data-tf-iframe-props="title=Gym-Buddy Form" data-tf-transitive-search-params data-tf-medium="snippet" style="width:100%;height:500px;"></div>
+      <script src="https://embed.typeform.com/next/embed.js"></script>
+      
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Gym-Buddy. Tous droits réservés.</p>
+      <ul class="social-links">
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

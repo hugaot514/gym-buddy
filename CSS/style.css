@@ -1,0 +1,26 @@
+@import url("components/banner.css");
+@import url("components/card.css");
+@import url("components/button.css");
+
+/* Styles de base pour éviter de se prendre la tête */
+body {
+  margin: 0;
+  font-family: 'Helvetica', sans-serif;
+  background-color: #f4f4f4;
+}
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.text-center {
+  text-align: center;
+}
+.list-inline {
+  list-style: none;
+  padding: 0;
+}
+.list-inline li {
+  display: inline;
+  margin: 0 10px;
+}
